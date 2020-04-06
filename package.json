@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/ng-packagr/package.schema.json",
-  "name": "@F",
-  "version": "1.0.0",
+  "name": "@danielzach/ng-mat-datetimepicker",
+  "version": "1.0.1",
   "description": "Angular Material Datepicker Fork with Timepicker",
   "keywords": [
     "material",

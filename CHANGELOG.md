@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/danielzach/ng-mat-datetimepicker/compare/v0.9.9...v1.0.1) (2020-04-06)
+
+
+
 <a name="0.9.5"></a>
 ## [0.9.5](https://github.com/selvera/npm-datepicker/compare/v0.9.4...v0.9.5) (2018-07-02)
 
