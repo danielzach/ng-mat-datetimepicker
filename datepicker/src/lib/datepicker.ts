@@ -84,7 +84,7 @@ export const MAT_DATEPICKER_SCROLL_STRATEGY_FACTORY_PROVIDER = {
 })
 export class MatDatepickerContent<D> implements AfterViewInit {
   /** Reference to the internal calendar component. */
-  @ViewChild(MatCalendar)
+  @ViewChild(MatCalendar, { static: true })
   _calendar: MatCalendar<D>;
 
   /** Reference to the datepicker that created the overlay. */

@@ -70,7 +70,7 @@ export class MatDatepickerToggle<D> implements AfterContentInit, OnChanges, OnDe
   private _disabled: boolean;
 
   /** Custom icon set by the consumer. */
-  @ContentChild(MatDatepickerToggleIcon)
+  @ContentChild(MatDatepickerToggleIcon, /* TODO: add static flag */ {})
   _customIcon: MatDatepickerToggleIcon;
 
   constructor(

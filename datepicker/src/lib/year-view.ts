@@ -116,7 +116,7 @@ export class MatYearView<D> implements AfterContentInit {
   readonly activeDateChange = new EventEmitter<D>();
 
   /** The body of calendar table */
-  @ViewChild(MatCalendarBody)
+  @ViewChild(MatCalendarBody, { static: true })
   _matCalendarBody: MatCalendarBody;
 
   /** Grid of calendar cells representing the months of the year. */

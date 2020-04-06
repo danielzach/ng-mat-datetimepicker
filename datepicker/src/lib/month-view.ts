@@ -125,7 +125,7 @@ export class MatMonthView<D> implements AfterContentInit {
   readonly activeDateChange = new EventEmitter<D>();
 
   /** The body of calendar table */
-  @ViewChild(MatCalendarBody)
+  @ViewChild(MatCalendarBody, { static: true })
   _matCalendarBody: MatCalendarBody;
 
   /** The label for this month (e.g. "January 2017"). */

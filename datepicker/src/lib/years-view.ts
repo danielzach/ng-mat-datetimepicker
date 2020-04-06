@@ -21,8 +21,7 @@ import {
   Output,
   ViewEncapsulation
 } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { of as obsOf, fromEvent } from 'rxjs';
+import { Subscription ,  of as obsOf, fromEvent } from 'rxjs';
 import { mergeMap, sampleTime } from 'rxjs/operators';
 import { MAT_DATE_FORMATS, MatDateFormats } from './core/index';
 import { DateAdapter } from './core/index';
