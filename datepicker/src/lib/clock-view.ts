@@ -9,7 +9,7 @@ import {
   Input,
   Optional,
   Output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { MAT_DATE_FORMATS, MatDateFormats } from './core/index';
 import { DateAdapter } from './core/index';
@@ -34,9 +34,9 @@ export type ClockView = 'hour' | 'minute';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     role: 'clock',
-    '(mousedown)': '_handleMousedown($event)'
+    '(mousedown)': '_handleMousedown($event)',
   },
-  preserveWhitespaces: false
+  preserveWhitespaces: false,
 })
 export class MatClockView<D> implements AfterContentInit {
   /**
@@ -142,7 +142,7 @@ export class MatClockView<D> implements AfterContentInit {
     return {
       transform: `rotate(${deg}deg)`,
       height: `${radius}%`,
-      'margin-top': `${50 - radius}%`
+      'margin-top': `${50 - radius}%`,
     };
   }
 
@@ -206,7 +206,7 @@ export class MatClockView<D> implements AfterContentInit {
       this._anteMeridian = this._dateAdapter.getHours(this.activeDate) < 12;
 
       for (let i = 0; i < hourNames.length / 2; i++) {
-        const radian = i / 6 * Math.PI;
+        const radian = (i / 6) * Math.PI;
         const radius = CLOCK_OUTER_RADIUS;
         const date = this._dateAdapter.createDate(
           this._dateAdapter.getYear(this.activeDate),
@@ -216,15 +216,15 @@ export class MatClockView<D> implements AfterContentInit {
         );
         this._hours.push({
           value: i,
-          displayValue: i === 0 ? '12' : hourNames[i],
+          displayValue: hourNames[i],
           enabled: !this.dateFilter || this.dateFilter(date, 'hour'),
           top: CLOCK_RADIUS - Math.cos(radian) * radius - CLOCK_TICK_RADIUS,
-          left: CLOCK_RADIUS + Math.sin(radian) * radius - CLOCK_TICK_RADIUS
+          left: CLOCK_RADIUS + Math.sin(radian) * radius - CLOCK_TICK_RADIUS,
         });
       }
     } else {
       for (let i = 0; i < hourNames.length; i++) {
-        const radian = i / 6 * Math.PI;
+        const radian = (i / 6) * Math.PI;
         const outer = i > 0 && i < 13;
         const radius = outer ? CLOCK_OUTER_RADIUS : CLOCK_INNER_RADIUS;
         const date = this._dateAdapter.createDate(
@@ -239,13 +239,13 @@ export class MatClockView<D> implements AfterContentInit {
           enabled: !this.dateFilter || this.dateFilter(date, 'hour'),
           top: CLOCK_RADIUS - Math.cos(radian) * radius - CLOCK_TICK_RADIUS,
           left: CLOCK_RADIUS + Math.sin(radian) * radius - CLOCK_TICK_RADIUS,
-          fontSize: i > 0 && i < 13 ? '' : '80%'
+          fontSize: i > 0 && i < 13 ? '' : '80%',
         });
       }
     }
 
     for (let i = 0; i < minuteNames.length; i += 5) {
-      const radian = i / 30 * Math.PI;
+      const radian = (i / 30) * Math.PI;
       const date = this._dateAdapter.createDate(
         this._dateAdapter.getYear(this.activeDate),
         this._dateAdapter.getMonth(this.activeDate),
@@ -258,7 +258,7 @@ export class MatClockView<D> implements AfterContentInit {
         displayValue: i === 0 ? '00' : minuteNames[i],
         enabled: !this.dateFilter || this.dateFilter(date, 'minute'),
         top: CLOCK_RADIUS - Math.cos(radian) * CLOCK_OUTER_RADIUS - CLOCK_TICK_RADIUS,
-        left: CLOCK_RADIUS + Math.sin(radian) * CLOCK_OUTER_RADIUS - CLOCK_TICK_RADIUS
+        left: CLOCK_RADIUS + Math.sin(radian) * CLOCK_OUTER_RADIUS - CLOCK_TICK_RADIUS,
       });
     }
 
@@ -292,8 +292,16 @@ export class MatClockView<D> implements AfterContentInit {
         value = 0;
       }
       value = this.twelveHour
-        ? this._anteMeridian ? value : value + 12
-        : outer ? (value === 0 ? 12 : value) : value === 0 ? 0 : value + 12;
+        ? this._anteMeridian
+          ? value
+          : value + 12
+        : outer
+        ? value === 0
+          ? 12
+          : value
+        : value === 0
+        ? 0
+        : value + 12;
       this._dateAdapter.setHours(date, value);
     } else {
       if (this.clockStep) {
