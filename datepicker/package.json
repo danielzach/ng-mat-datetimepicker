@@ -1,7 +1,7 @@
 {
-  "name": "@https://github.com/danielzach/ng-mat-datetimepicker",
+  "name": "@danielzach/ng-mat-datetimepicker",
   "version": "1.0.0",
-  "description": "Angular Material Datepicker Fork with Timepicker",
+  "description": "Angular Material Datetimepicker",
   "keywords": [
     "material",
     "datetimepicker"

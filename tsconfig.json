@@ -20,10 +20,10 @@
       "dom"
     ],
     "paths": {
-      "@https://github.com/danielzach/ng-mat-datetimepicker": [
+      "@danielzach/ng-mat-datetimepicker": [
         "./datepicker/src/lib/"
       ],
-      "@https://github.com/danielzach/ng-mat-datetimepicker/*": [
+      "@danielzach/ng-mat-datetimepicker/*": [
         "./datepicker/src/lib/*"
       ]
     }
