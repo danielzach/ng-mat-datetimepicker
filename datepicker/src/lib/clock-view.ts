@@ -216,7 +216,7 @@ export class MatClockView<D> implements AfterContentInit {
         );
         this._hours.push({
           value: i,
-          displayValue: hourNames[i],
+          displayValue: i === 0 ? '12' : hourNames[i],
           enabled: !this.dateFilter || this.dateFilter(date, 'hour'),
           top: CLOCK_RADIUS - Math.cos(radian) * radius - CLOCK_TICK_RADIUS,
           left: CLOCK_RADIUS + Math.sin(radian) * radius - CLOCK_TICK_RADIUS,
@@ -235,7 +235,7 @@ export class MatClockView<D> implements AfterContentInit {
         );
         this._hours.push({
           value: i,
-          displayValue: i === 0 ? '12' : hourNames[i],
+          displayValue: hourNames[i],
           enabled: !this.dateFilter || this.dateFilter(date, 'hour'),
           top: CLOCK_RADIUS - Math.cos(radian) * radius - CLOCK_TICK_RADIUS,
           left: CLOCK_RADIUS + Math.sin(radian) * radius - CLOCK_TICK_RADIUS,
